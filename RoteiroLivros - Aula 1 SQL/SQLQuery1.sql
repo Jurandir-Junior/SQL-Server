@@ -1,7 +1,7 @@
 -- DDL Linguagem de Definição de Dados
-CREATE DATABASE RoteiroLivros;
+CREATE DATABASE RoteiroLivros_Manha;
 
-USE RoteiroLivros;
+USE RoteiroLivros_Manha;
 
 CREATE TABLE Generos (
 	IdGenero INT PRIMARY KEY IDENTITY,
@@ -9,7 +9,7 @@ CREATE TABLE Generos (
 );
 
 CREATE TABLE Autores (
-	IdAutor INT PRIMARY KEY,
+	IdAutor INT PRIMARY KEY IDENTITY,
 	NomeAutor VARCHAR(200)
 );
 
@@ -26,7 +26,7 @@ SELECT * FROM Generos;
 SELECT * FROM Livros;
 
 ALTER TABLE Autores
-ADD DataNascimento DATE;
+ADD NomeAutor VARCHAR (200);
 
 ALTER TABLE Autores
 ALTER COLUMN NomeAutor CHAR;
@@ -34,3 +34,40 @@ ALTER COLUMN NomeAutor CHAR;
 ALTER TABLE Autores
 DROP COLUMN NomeAutor;
 
+DROP TABLE Autores;
+DROP TABLE Livros;
+
+INSERT INTO Autores (NomeAutor)
+VALUES ('Junior'),
+	   ('Alex'),
+	   ('Joao'),
+	   ('Nathan'),
+	   ('Pedro');
+
+INSERT INTO Generos (Nome)
+VALUES ('Comedia'),
+	   ('Supense'),
+	   ('Ficcao Cientifica'),
+	   ('Romance'),
+	   ('Acao');
+
+INSERT INTO Livros (Titulo, IdAutor, IdGenero)
+VALUES ('Paconha',2,4),
+	   ('Coxinha',1,1),
+	   ('Balao',4,3),
+	   ('Flango',5,5),
+	   ('Churros',3,2);
+
+UPDATE Generos
+SET Nome = 'Aventura'
+WHERE IdGenero = 3;
+
+UPDATE Livros
+SET IdGenero = 1
+WHERE IdLivro = 1;
+
+DELETE FROM Livros
+WHERE IdLivro = 4;
+
+DELETE FROM Autores
+WHERE IdAutor = 5;
