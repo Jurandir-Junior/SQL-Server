@@ -71,3 +71,7 @@ WHERE IdLivro = 4;
 
 DELETE FROM Autores
 WHERE IdAutor = 5;
+
+SELECT IdLivro, IdAutor FROM Livros;
+SELECT IdLivro, IdGenero FROM Livros;
+SELECT IdLivro, IdAutor, IdGenero FROM Livros;	

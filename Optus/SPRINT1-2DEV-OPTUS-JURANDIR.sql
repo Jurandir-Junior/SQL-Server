@@ -26,7 +26,7 @@ CREATE TABLE Albuns (
 
 CREATE TABLE TiposUsuario (
 	IdTipoUsuario INT PRIMARY KEY IDENTITY,
-	Titulo	VARCHAR(200)
+	Nome	VARCHAR(200)
 );
 
 CREATE TABLE Usuarios (
@@ -95,31 +95,8 @@ DELETE FROM Albuns
 WHERE IdAlbum = 5;
 
 SELECT * FROM Albuns WHERE IdArtista = 1;
-
--- Com Inner Join
-SELECT * FROM Artistas
-INNER JOIN Albuns ON Artistas.IdArtista = Albuns.IdArtista
-WHERE Albuns.IdArtista = 1;
-
 SELECT * FROM Albuns WHERE DataLancamento = '14/08/2016';
-
--- Com Inner Join
-SELECT Artistas.Nome, Albuns.Nome, Albuns.DataLancamento FROM Artistas
-INNER JOIN Albuns ON Artistas.IdArtista = Albuns.IdArtista
-WHERE DataLancamento = '14/08/2016';
-
-SELECT IdArtista, IdEstilo FROM Albuns WHERE IdEstilo = 1;
-
--- Com Inner Join
-SELECT Artistas.Nome, Estilos.Nome as Estilo FROM Albuns
-INNER JOIN Artistas ON Albuns.IdArtista = Artistas.IdArtista
-INNER JOIN Estilos ON Albuns.IdEstilo = Estilos.IdEstilo
-WHERE Albuns.IdEstilo = 1;
+SELECT IdArtista FROM Albuns WHERE IdEstilo = 1;
 
 SELECT Nome, IdArtista, DataLancamento FROM Albuns
-ORDER BY DataLancamento DESC;
-
--- Com Inner Join
-SELECT * FROM Albuns
-INNER JOIN Artistas ON Albuns.IdArtista = Artistas.IdArtista
 ORDER BY DataLancamento DESC;
