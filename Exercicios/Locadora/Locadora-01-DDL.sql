@@ -38,3 +38,6 @@ CREATE TABLE Aluguel (
 	IdCliente INT FOREIGN KEY REFERENCES Cliente (IdCliente),
 	IdVeiculo INT FOREIGN KEY REFERENCES Veiculo (IdVeiculo)
 );
+
+ALTER TABLE Cliente
+ALTER COLUMN CPF BIGINT;
